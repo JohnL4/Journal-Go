@@ -1,4 +1,4 @@
-module github.com/JohnL4/HelloGin
+module github.com/JohnL4/Journal-Go
 
 go 1.20
 
