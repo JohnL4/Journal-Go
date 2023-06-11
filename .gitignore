@@ -1,0 +1,5 @@
+*.exe
+# **/.vscode
+# web/dist
+# **/node_modules
+
