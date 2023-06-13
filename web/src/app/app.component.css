@@ -3,8 +3,28 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
     grid-gap: 2rem;
+    padding: 2rem;
 }
 
 .grid-item {
     border: 1px solid silver;
+    padding: 2rem;
 }
+
+.item1 {
+    background-color: #FFE6E6;
+
+}
+
+.item2 {
+    background-color: #EBE5FC;
+}
+
+.item3 {
+    background-color: #E4FDE4;
+}
+
+.item4 {
+    background-color: #FFFBE6;
+}
+
