@@ -88,6 +88,10 @@ be an expensive operation.  Maybe we should disallow that.  Or rate-limit it (e.
 
 Maybe also let the user choose timezone?  Or pick timezone from browser (is that possible?)?
 
+**Possibly a separate UI**
+
+Also, upload new form definition (which gets time-stamped).
+
 # Encryption on browser?
 
 Need some things:
