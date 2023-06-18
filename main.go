@@ -23,7 +23,7 @@ func main() {
 	// All weird routes (in Angular app) need a default fallback, per
 	// https://angular.io/guide/deployment#routed-apps-must-fall-back-to-indexhtml
 	r.NoRoute(func(c *gin.Context) {
-		c.Redirect(302, "/ng/index.html")
+		c.Redirect(302, "/static/index.html")
 	})
 	r.Run()
 	// listen and serve on 0.0.0.0:8080
