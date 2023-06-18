@@ -1,5 +1,7 @@
 *.exe
-# **/.vscode
-# web/dist
-# **/node_modules
+**/.vscode
+ng/dist
+**/node_modules
 
+static/style.css.map
+static/style.css
