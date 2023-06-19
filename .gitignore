@@ -5,3 +5,5 @@ ng/dist
 
 static/style.css.map
 static/style.css
+ng/src/styles.css
+ng/src/styles.css.map
