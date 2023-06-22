@@ -58,10 +58,10 @@ Off to the races!
 
 From top down:
 
-Today's date (maybe this would be the one fixed element).
+Today's date (maybe this would be the one fixed element).  Date picker?
 
 Dropdown for form type (day of week, like M-Th is one form, Friday could be another, Sat & Sun could each be their own;
-or everything could be the same).
+or everything could be the same).  Also:  work vs. personal?  Could be a long-ish list, if a cross-product.
 
 ### Config-driven form
 
@@ -72,6 +72,10 @@ Finally, free-form text box (allow markdown, preserve linefeeds).
 *Alternatively*:
 
 Free-form text field at top, followed by checkboxes and short text entries underneath.
+
+### UI-driven form layout?
+
+Rather than have to create a JSON file? 
 
 ## History, in table form
 
