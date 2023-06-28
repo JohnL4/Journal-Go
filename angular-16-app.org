@@ -79,6 +79,11 @@
 ** Light/dark theming
 
    https://indepth.dev/posts/1218/lets-implement-a-theme-switch-like-the-angular-material-site
+
+*** TODO App reloads after setting theme, negating effect of setting style
+
+    After implementing the final step of this guide, I see the app reloading =index.html=, basically negating the
+    effect. :(
    
 ** Auto light/dark theming
 
@@ -107,6 +112,23 @@
    But I think the problem might be that I didn't =@include= the mat-menu style.
 
    It wasn't actually an elevation issue, but including the styles (or themes, whatever) did the trick.
+
+** Icons
+
+   The indepth.dev post uses the Material Google fonts.  They actually work by specifying ligatures, which normally
+   means combinations like "fi" are replaced by a different glyph (maybe zoom in on the occurrence in this web page to
+   see it in action).  There's no reason, as a font maker, you can't specify another ligature for a sequence of letters
+   like "home" such that, when they occur, you replace them with their own glyph that looks like a house.
+
+   So, the fonts are included in your web page by adding the following to your =index.html=, in the =head= section:
+
+   : <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+   Then you can include something like the following somewhere in your app:
+
+   : <mat-icon class="icon">menu</mat-icon>
+
+   (Note this is only set up for /icons/ right now, not symbols, apparently.)
 
 * SSR of theme preference?
 * Authentication (auth0)
