@@ -38,11 +38,11 @@ $light-theme: mat.define-light-theme((
  // typography and density styles.
  @include mat.core-color($light-theme);
  @include mat.button-color($light-theme);
- @include mat.slide-toggle-theme( $light-theme);
- @include mat.toolbar-theme( $light-theme);
- @include mat.menu-theme( $light-theme);
- @include mat.icon-theme( $light-theme);
- @include mat.sidenav-theme( $light-theme);
+ @include mat.slide-toggle-color( $light-theme);
+ @include mat.toolbar-color( $light-theme);
+ @include mat.menu-color( $light-theme);
+ @include mat.icon-color( $light-theme);
+ @include mat.sidenav-color( $light-theme);
  }
 
 html, body { height: 100%; }
