@@ -1,0 +1,119 @@
+# -*- mode: org -*-
+#+TITLE: Notes on Writing an Angular 16 App with Material and All the Stuff
+#+CATEGORY: ang16
+#+COLUMNS: %12TODO %10WHO %3PRIORITY %Effort(Effort, Hrs){est+} %82ITEM
+# #+INFOJS_OPT: view:showall toc:t ltoc:nil path:../org-info.js mouse:#B3F2E3
+# Pandoc needs H:9; default is H:3.
+# `^:nil' means raw underscores and carets are not interpreted to mean sub- and superscript.  (Use {} to force interpretation.)
+#+OPTIONS: author:nil creator:t H:9 ^:{}
+#+HTML_HEAD: <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,600,600i|IBM+Plex+Sans:400,400i,600,600i|IBM+Plex+Serif:400,400i,600,600i">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="org-mode.css" />
+
+# Generates "up" and "home" links ("." is "current directory").  Can comment one out.
+#+HTML_LINK_UP: .
+#+HTML_LINK_HOME: _index.html
+
+# Use ``#+ATTR_HTML: :class lower-alpha'' on line before list to use the following class.
+# See https://emacs.stackexchange.com/a/18943/17421
+# 
+#+HTML_HEAD: <style type="text/css">
+#+HTML_HEAD:  ol.lower-alpha { list-style-type: lower-alpha; }
+#+HTML_HEAD: </style>
+
+#+PROPERTY: header-args:plantuml :exports both :cache yes
+
+* Overview 
+** Column view
+# C-c C-c in block to update or C-u C-c C-x C-u to update all such views in file from anywhere.
+#+BEGIN: columnview :hlines 1 :id global :indent t
+#+END:
+* Reproduction 
+* Current Architecture/Issues 
+* Fix 
+* Checkin 
+* Notes 
+
+* Angular
+
+** Typescript definite assignment
+
+   Got compiler errors from the theme-switch post below.  Basically, I think we need to convince the compiler that
+
+   #+BEGIN_SRC tide
+     options$: Observable<Array<Option>> = this.themeService.getThemeOptions();
+   #+END_SRC
+
+   Never assigns a null to =options$=.  Or possibly, that =themeService.getThemeOptions()= never returns a null.
+
+   Looks like the statement of the problem is here: https://angular.io/guide/template-typecheck#strict-null-checks.
+
+*** How I solved it
+
+    The problem is the =async= operator.  On a fundamental level, we're getting the list of theme options from the
+    server, and there's no guarantee the server API call has returned yet.  In that case, when =async= is evaluated,
+    it's forced to return null, so we could wind up with a null.
+
+    I could wrap the entire =async= pipeline in a definite-assignment assertion, as follows:
+
+    : <app-menu [options]="(options$ | async)!" (themeChange)="themeChangeHandler($event)">
+
+    and that makes the compiler error go away, but it doesn't make the null situation go away (and we'll probably still
+    be getting a null from =async= b/c the server will not have returned yet).  Maybe that's fine?  Maybe this is just
+    compiler warnings and we can just be slack and say "trust us, we'll get a definite value"?
+
+* SASS
+
+** RESEARCH-DONE How to specify that Angular components use =.scss= instead of =.css=
+   CLOSED: [2023-06-26 Mon 18:19]
+
+   Maybe this?
+   https://medium.com/motf-creations/migrate-from-css-to-scss-stylesheets-for-existing-angular-application-d61f8061f5b7
+
+   The easy way documented in that article didn't quite work, but I think I was able to do it by hand.
+
+   The problem was that /some/ =.scss= files existed already, so the tools refused to work.  They could maybe be made
+   smarter, but not by me (at least, not right now).
+
+* Material
+** Color theming
+** Light/dark theming
+
+   https://indepth.dev/posts/1218/lets-implement-a-theme-switch-like-the-angular-material-site
+   
+** Auto light/dark theming
+
+   https://material.angular.io/guide/theming#multiple-themes-in-one-file
+
+** Sidenav
+
+   https://material.angular.io/components/sidenav/overview
+
+   Imports go in =app.module.ts=.
+
+** How to add a new material component to the app
+
+   Where does the styling go?
+
+   General styling goes in either the top-level =styles.scss= or =custom-theme.scss=.
+
+   Don't forget to =@include mat.<component>-theme= when you use a new Material component.
+
+** Elevation (?) issues
+
+   My toolbar menu isn't coming up on top of my toolbar, but, rather, underneath it.
+
+   [[file:material-menu-weirdness.png][file:material-menu-weirdness.png]]
+
+   But I think the problem might be that I didn't =@include= the mat-menu style.
+
+   It wasn't actually an elevation issue, but including the styles (or themes, whatever) did the trick.
+
+* SSR of theme preference?
+* Authentication (auth0)
+* SSL cert (let's encrypt?)
+** Golang autocert
+* Client-side encryption
+** Store key in 3rd-party Auth service?
+* Wireframe
+** Figma?
+** Balsamic?

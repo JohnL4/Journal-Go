@@ -9,3 +9,9 @@ ng/src/styles.css
 ng/src/styles.css.map
 ng/**/*.css
 ng/**/*.css.map
+
+angular-16-app.html
+
+**/*~
+**/#*#
+**/.#*#
