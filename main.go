@@ -18,7 +18,8 @@ func main() {
 	})
 
 	r.Static("/ng", "./ng/dist/journal") // Serve a static base directory under the given path.
-	r.Static("/static", "./static")      // Serve a static base directory under the given path.
+	r.Static("/node_modules", "./ng/node_modules")
+	r.Static("/static", "./static") // Serve a static base directory under the given path.
 
 	// All weird routes (in Angular app) need a default fallback, per
 	// https://angular.io/guide/deployment#routed-apps-must-fall-back-to-indexhtml

@@ -80,10 +80,21 @@
 
    https://indepth.dev/posts/1218/lets-implement-a-theme-switch-like-the-angular-material-site
 
-*** TODO App reloads after setting theme, negating effect of setting style
+*** DONE App reloads after setting theme, negating effect of setting style
+    CLOSED: [2023-06-29 Thu 19:12]
+
+    - CLOSING NOTE [2023-06-29 Thu 19:12] \\
+      The problem was that I didn't have a path set up in my Go app for requests to urls starting with "/node_modules".  So,
+      the Go app was returning the default path, =index.html=.
+      
+      Once I set up that path in Go, as below, it works fine.
+      
+      : r.Static("/node_modules", "./ng/node_modules")
 
     After implementing the final step of this guide, I see the app reloading =index.html=, basically negating the
     effect. :(
+
+*** TODO Need to load initially with my chosen lightblue-orange theme
    
 ** Auto light/dark theming
 
