@@ -15,3 +15,7 @@ angular-16-app.html
 **/*~
 **/#*#
 **/.#*#
+static/dark.css
+static/light.css
+**/*.css.map
+static/smarts.js
