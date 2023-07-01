@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit  {
   constructor(private readonly themeService: ThemeService) {}
 
   ngOnInit() {
-    this.themeService.setTheme("deeppurple-amber");
+    // this.themeService.setTheme("deeppurple-amber");
   }
 
   themeChangeHandler(themeToSet: string) {

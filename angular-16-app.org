@@ -27,12 +27,6 @@
 # C-c C-c in block to update or C-u C-c C-x C-u to update all such views in file from anywhere.
 #+BEGIN: columnview :hlines 1 :id global :indent t
 #+END:
-* Reproduction 
-* Current Architecture/Issues 
-* Fix 
-* Checkin 
-* Notes 
-
 * Angular
 
 ** Typescript definite assignment
@@ -95,6 +89,10 @@
     effect. :(
 
 *** TODO Need to load initially with my chosen lightblue-orange theme
+
+    Turns out header-component's =ngOnInit()= loads the purple-amber color theme by default, at
+    startup.  I can (at the moment) simply comment that out, so no theme is "loaded" on init, which
+    leaves the theme I created in the root =styles.scss= in place, my lightblue-orange theme.
    
 ** Auto light/dark theming
 
