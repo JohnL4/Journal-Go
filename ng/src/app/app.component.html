@@ -1,6 +1,6 @@
-<app-header></app-header>
+<app-header [mainSidenav]="mainSidenav"></app-header>
 <mat-sidenav-container>
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav #mainSidenav mode="side" opened>Sidenav content</mat-sidenav>
     <mat-sidenav-content>
 
 <h1>It works!</h1>

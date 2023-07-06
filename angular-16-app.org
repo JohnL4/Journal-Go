@@ -26,6 +26,42 @@
 ** Column view
 # C-c C-c in block to update or C-u C-c C-x C-u to update all such views in file from anywhere.
 #+BEGIN: columnview :hlines 1 :id global :indent t
+| TODO          | WHO | PRIORITY | Effort, Hrs | ITEM                                                                     |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Overview                                                                 |
+|               |     | B        |             | \_  Column view                                                          |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Angular                                                                  |
+|               |     | B        |             | \_  Typescript definite assignment                                       |
+|               |     | B        |             | \_    How I solved it                                                    |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | SASS                                                                     |
+| RESEARCH-DONE |     | B        |             | \_  How to specify that Angular components use =.scss= instead of =.css= |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Material                                                                 |
+|               |     | B        |             | \_  Color theming                                                        |
+|               |     | B        |             | \_  Light/dark theming                                                   |
+| DONE          |     | B        |             | \_    App reloads after setting theme, negating effect of setting style  |
+| TODO          |     | B        |             | \_    Need to load initially with my chosen lightblue-orange theme       |
+|               |     | B        |             | \_  Auto light/dark theming                                              |
+|               |     | B        |             | \_  Sidenav                                                              |
+|               |     | B        |             | \_  How to add a new material component to the app                       |
+|               |     | B        |             | \_  Elevation (?) issues                                                 |
+|               |     | B        |             | \_  Icons                                                                |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | SSR of theme preference?                                                 |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Authentication (auth0)                                                   |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | SSL cert (let's encrypt?)                                                |
+|               |     | B        |             | \_  Golang autocert                                                      |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Client-side encryption                                                   |
+|               |     | B        |             | \_  Store key in 3rd-party Auth service?                                 |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Wireframe                                                                |
+|               |     | B        |             | \_  Figma?                                                               |
+|               |     | B        |             | \_  Balsamic?                                                            |
 #+END:
 * Angular
 
@@ -54,6 +90,10 @@
     and that makes the compiler error go away, but it doesn't make the null situation go away (and we'll probably still
     be getting a null from =async= b/c the server will not have returned yet).  Maybe that's fine?  Maybe this is just
     compiler warnings and we can just be slack and say "trust us, we'll get a definite value"?
+
+** Specify input and output from components
+
+   Decorate the class /member/ with =@Input()= or =@Output()=, not the class.
 
 * SASS
 
@@ -85,11 +125,18 @@
       
       : r.Static("/node_modules", "./ng/node_modules")
 
+      btw, This won't work with shipping product, since it's essentially pulling the predefined themes straight out of
+      the dev folder's =node_modules= subdirectory.  We'd need to find a different way if we took this approach, plus we
+      want the user to (maybe) define their own color scheme?  Maybe?
+      #----------------------------------------------------------------
+
     After implementing the final step of this guide, I see the app reloading =index.html=, basically negating the
     effect. :(
 
-*** TODO Need to load initially with my chosen lightblue-orange theme
+*** DONE Need to load initially with my chosen lightblue-orange theme
+    CLOSED: [2023-07-06 Thu 18:06]
 
+    - CLOSING NOTE [2023-07-06 Thu 18:06]
     Turns out header-component's =ngOnInit()= loads the purple-amber color theme by default, at
     startup.  I can (at the moment) simply comment that out, so no theme is "loaded" on init, which
     leaves the theme I created in the root =styles.scss= in place, my lightblue-orange theme.

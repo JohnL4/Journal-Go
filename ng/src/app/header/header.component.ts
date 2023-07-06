@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 
 import { Option } from "../model/option";
 import { ThemeService } from "../theme.service";
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,17 @@ import { ThemeService } from "../theme.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit  {
+  @Input() mainSidenav: MatSidenav | undefined;
   options$: Observable<Array<Option>> = this.themeService.getThemeOptions()!;
 
   constructor(private readonly themeService: ThemeService) {}
 
   ngOnInit() {
     // this.themeService.setTheme("deeppurple-amber");
+  }
+
+  hamburgerMenuToggle() {
+    this.mainSidenav?.toggle();
   }
 
   themeChangeHandler(themeToSet: string) {
