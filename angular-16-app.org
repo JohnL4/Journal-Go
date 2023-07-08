@@ -140,6 +140,29 @@
     Turns out header-component's =ngOnInit()= loads the purple-amber color theme by default, at
     startup.  I can (at the moment) simply comment that out, so no theme is "loaded" on init, which
     leaves the theme I created in the root =styles.scss= in place, my lightblue-orange theme.
+
+**** IN-PROGRESS Problem with typography and density not being active at first
+
+     I got the colors to load, but the typography/density is off (still user browser default; also no good if I hammer
+     in Roboto as the body font in =styles.scss=).
+
+     Need to get a full theme in play.
+
+     Installed @angular/material with the following options:
+
+     #+BEGIN_EXAMPLE
+        C:\Users\John\Development\go\Journal\ng> ng add @angular/material
+       Skipping installation: Package already installed
+       ? Choose a prebuilt theme name, or "custom" for a custom theme: Custom
+       ? Set up global Angular Material typography styles? Yes
+       ? Include the Angular animations module? Include and enable animations
+     #+END_EXAMPLE
+
+     After that, I didn't need to add =mat-typography= to my =body= element, but the typography is still different from
+     the prebuilt themes.
+
+     */BUT ALSO:/* Selecting "global" (I think) caused the behavior of the /prebuilt/ themes to change so now the
+     typography matches.
    
 ** Auto light/dark theming
 
@@ -185,6 +208,26 @@
    : <mat-icon class="icon">menu</mat-icon>
 
    (Note this is only set up for /icons/ right now, not symbols, apparently.)
+
+** Columns of components (column-major layout)
+
+   How to display more columns in wide-screen than in narrow.  Column-major order, basically.
+
+** TODO Make the toolbar stick to the top of the window/viewport
+
+* Animated SVG (?)
+
+** TODO Need to animate hamburger-to-left-arrow and back
+
+   SVG animation thing?
+
+*** npm install hamburgers
+
+    https://www.npmjs.com/package/hamburgers#sass, q.v.
+
+*** Angular does the equivalent of autoprefixer
+
+    See https://stackoverflow.com/questions/65760020/use-autoprefixer-with-angular11
 
 * SSR of theme preference?
 * Authentication (auth0)
