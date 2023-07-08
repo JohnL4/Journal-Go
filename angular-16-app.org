@@ -55,7 +55,7 @@
 | RESEARCH-DONE |     | B        |             | \_  What is the behavior of Angular components in web page DOM?          |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | Animated SVG (?)                                                         |
-| TODO          |     | B        |             | \_  Need to animate hamburger-to-left-arrow and back                     |
+| DONE          |     | B        |             | \_  Need to animate hamburger-to-left-arrow and back                     |
 |               |     | B        |             | \_    npm install hamburgers                                             |
 |               |     | B        |             | \_    Angular does the equivalent of autoprefixer                        |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
@@ -265,7 +265,14 @@
 
 * Animated SVG (?)
 
-** TODO Need to animate hamburger-to-left-arrow and back
+** DONE Need to animate hamburger-to-left-arrow and back
+   CLOSED: [2023-07-08 Sat 16:09]
+
+   - CLOSING NOTE [2023-07-08 Sat 16:09] \\
+     I got it done, but:
+        a. It's too big and doesn't use the toolbar's foreground color; and
+        b. The javascript/animated CSS/whatever doesn't work on my Samsung Galaxy 8.
+     So, maybe just ditch this fluorish.
 
    SVG animation thing?
 
