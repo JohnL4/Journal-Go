@@ -1,6 +1,14 @@
 <mat-toolbar color="primary" class="mat-elevation-z4">
     <mat-toolbar-row> 
         <!-- <span>Hamburger</span> -->
+        <button class="hamburger hamburger--arrow {{this.hamburgerMenuIsActive ? 'is-active' : ''}}" 
+            type="button"
+            (click)="hamburgerMenuToggle()"
+            >
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>  
         <mat-icon
             class="icon"
             (click)="hamburgerMenuToggle()"
