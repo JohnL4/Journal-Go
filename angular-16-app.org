@@ -226,6 +226,11 @@
 
 ** TODO Make the toolbar stick to the top of the window/viewport
 
+try:
+
+: position: sticky;
+: top: 0;
+
 * Animated SVG (?)
 
 ** TODO Need to animate hamburger-to-left-arrow and back
