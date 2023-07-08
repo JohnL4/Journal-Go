@@ -34,6 +34,7 @@
 |               |     | B        |             | Angular                                                                  |
 |               |     | B        |             | \_  Typescript definite assignment                                       |
 |               |     | B        |             | \_    How I solved it                                                    |
+|               |     | B        |             | \_  Specify input and output from components                             |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | SASS                                                                     |
 | RESEARCH-DONE |     | B        |             | \_  How to specify that Angular components use =.scss= instead of =.css= |
@@ -42,12 +43,20 @@
 |               |     | B        |             | \_  Color theming                                                        |
 |               |     | B        |             | \_  Light/dark theming                                                   |
 | DONE          |     | B        |             | \_    App reloads after setting theme, negating effect of setting style  |
-| TODO          |     | B        |             | \_    Need to load initially with my chosen lightblue-orange theme       |
+| DONE          |     | B        |             | \_    Need to load initially with my chosen lightblue-orange theme       |
+| DONE          |     | B        |             | \_      Problem with typography and density not being active at first    |
 |               |     | B        |             | \_  Auto light/dark theming                                              |
 |               |     | B        |             | \_  Sidenav                                                              |
 |               |     | B        |             | \_  How to add a new material component to the app                       |
 |               |     | B        |             | \_  Elevation (?) issues                                                 |
 |               |     | B        |             | \_  Icons                                                                |
+|               |     | B        |             | \_  Columns of components (column-major layout)                          |
+| TODO          |     | B        |             | \_  Make the toolbar stick to the top of the window/viewport             |
+|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
+|               |     | B        |             | Animated SVG (?)                                                         |
+| TODO          |     | B        |             | \_  Need to animate hamburger-to-left-arrow and back                     |
+|               |     | B        |             | \_    npm install hamburgers                                             |
+|               |     | B        |             | \_    Angular does the equivalent of autoprefixer                        |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | SSR of theme preference?                                                 |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
@@ -141,7 +150,8 @@
     startup.  I can (at the moment) simply comment that out, so no theme is "loaded" on init, which
     leaves the theme I created in the root =styles.scss= in place, my lightblue-orange theme.
 
-**** IN-PROGRESS Problem with typography and density not being active at first
+**** DONE Problem with typography and density not being active at first
+     CLOSED: [2023-07-07 Fri 22:52]
 
      I got the colors to load, but the typography/density is off (still user browser default; also no good if I hammer
      in Roboto as the body font in =styles.scss=).
@@ -162,7 +172,8 @@
      the prebuilt themes.
 
      */BUT ALSO:/* Selecting "global" (I think) caused the behavior of the /prebuilt/ themes to change so now the
-     typography matches.
+     typography matches.  (Maybe the prebuilt themes didn't have a typography settings, so they inherited the global
+     setting???)
    
 ** Auto light/dark theming
 
