@@ -51,7 +51,8 @@
 |               |     | B        |             | \_  Elevation (?) issues                                                 |
 |               |     | B        |             | \_  Icons                                                                |
 |               |     | B        |             | \_  Columns of components (column-major layout)                          |
-| TODO          |     | B        |             | \_  Make the toolbar stick to the top of the window/viewport             |
+| DONE          |     | B        |             | \_  Make the toolbar stick to the top of the window/viewport             |
+| RESEARCH-DONE |     | B        |             | \_  What is the behavior of Angular components in web page DOM?          |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | Animated SVG (?)                                                         |
 | TODO          |     | B        |             | \_  Need to animate hamburger-to-left-arrow and back                     |
@@ -224,12 +225,43 @@
 
    How to display more columns in wide-screen than in narrow.  Column-major order, basically.
 
-** TODO Make the toolbar stick to the top of the window/viewport
+** DONE Make the toolbar stick to the top of the window/viewport
+   CLOSED: [2023-07-08 Sat 12:54]
 
-try:
 
-: position: sticky;
-: top: 0;
+   Use Angular Material elevation helpers, but those only affect shadows, not =z-index= (I guess they want to be
+   conservative in their assumptions of the app's actual layers).  You can also explicitly set =z-index= in your
+   stylesheet for the component.
+
+   =position= and =top= work to make the toolbar stick, but without =z-index=, the content below still scrolls over the
+   toolbar.  It's kind of weird, and I don't fully understand it.
+
+   #+CAPTION: component html
+   #+BEGIN_SRC html
+     <mat-toolbar color="primary" class="mat-elevation-z4">
+   #+END_SRC 
+
+   #+CAPTION: component stylesheet (.scss)
+   #+BEGIN_SRC scss
+     mat-toolbar {
+         position: sticky;
+         top: 0;
+         z-index: 4;
+     }
+   #+END_SRC 
+
+** RESEARCH-DONE What is the behavior of Angular components in web page DOM?
+   CLOSED: [2023-07-08 Sat 11:38]
+
+   Chrome browser dev tools reports Angular components as DOM elements of their own (e.g., "mat-toolbar").  Are these
+   DIV elements?  Or just attribute-free elements?  If the latter, how are they laid out (e.g., block context vs. flow
+   context)?
+
+   Looks like the answer is "arbitrary elements are /autonomous custom elements/, and they inherit from Element."  See
+   https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements.
+
+   I don't think it has layout properties, so the browser is blind to it, but it /can/ have a class name (or list of).
+   Interestingly, it can't have a =style= attribute, although =HTMLElement= /can/.
 
 * Animated SVG (?)
 
