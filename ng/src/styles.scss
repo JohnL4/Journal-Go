@@ -25,6 +25,8 @@ $light-theme: mat.define-light-theme((
 
 // Apply the dark theme by default
 @include mat.core-theme($dark-theme);
+@include mat.form-field-theme($dark-theme);
+@include mat.input-theme($dark-theme);
 @include mat.button-theme($dark-theme);
 @include mat.slide-toggle-theme( $dark-theme);
 @include mat.toolbar-theme( $dark-theme);
@@ -38,6 +40,8 @@ $light-theme: mat.define-light-theme((
  // Use the `-color` mixins to only apply color styles without reapplying the same
  // typography and density styles.
  @include mat.core-color($light-theme);
+ @include mat.form-field-color($light-theme);
+ @include mat.input-color($light-theme);
  @include mat.button-color($light-theme);
  @include mat.slide-toggle-color( $light-theme);
  @include mat.toolbar-color( $light-theme);
