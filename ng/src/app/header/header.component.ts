@@ -12,7 +12,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class HeaderComponent implements OnInit  {
   @Input() mainSidenav: MatSidenav | undefined;
-  hamburgerMenuIsActive = true;
+  hamburgerMenuIsActive = false;
   options$: Observable<Array<Option>> = this.themeService.getThemeOptions()!;
 
   constructor(private readonly themeService: ThemeService

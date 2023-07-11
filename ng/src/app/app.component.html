@@ -1,8 +1,17 @@
 <app-header [mainSidenav]="mainSidenav"></app-header>
 <mat-sidenav-container class="mat-elevation-z0">
-    <mat-sidenav #mainSidenav mode="side" opened>Sidenav content</mat-sidenav>
+    <!-- Default for modes "over"and "push" (I think) are for auto-focus to occur when the sidenav is opened, which
+        can cause some weird auto-scroll effects.
+    -->
+    <mat-sidenav #mainSidenav mode="over" autoFocus="false">
+        Sidenav content<br/>
+        This should sidebar<br/>
+        should probably not be here.
+    </mat-sidenav>
     <mat-sidenav-content>
+        <app-journal-editor>
 
+        </app-journal-editor>
 <h1>It works!</h1>
 
 <p>Yay! \o/</p>

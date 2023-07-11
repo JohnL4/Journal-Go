@@ -2,8 +2,6 @@
 
 @use '@angular/material' as mat;
 
-// @use "hamburgers/_sass/hamburgers/hamburgers";
-
 @include mat.core();
 
 // Define a dark theme
@@ -13,9 +11,7 @@ $dark-theme: mat.define-dark-theme((
    accent: mat.define-palette(mat.$orange-palette),
  ),
   // Only include `typography` and `density` in the default dark theme.
-  typography: mat.define-typography-config(
-    // $font-family: 'Roboto'   // Setting explicitly here doesn't seem to help.
-  ),
+  typography: mat.define-typography-config(  ),
   density: 0,
 ));
 
@@ -35,6 +31,7 @@ $light-theme: mat.define-light-theme((
 @include mat.menu-theme( $dark-theme);
 @include mat.icon-theme( $dark-theme);
 @include mat.sidenav-theme( $dark-theme);
+@include mat.datepicker-theme( $dark-theme);
 
 // Apply the light theme only when the user prefers light themes.
 @media (prefers-color-scheme: light) {
@@ -47,14 +44,11 @@ $light-theme: mat.define-light-theme((
  @include mat.menu-color( $light-theme);
  @include mat.icon-color( $light-theme);
  @include mat.sidenav-color( $light-theme);
+ @include mat.datepicker-color( $light-theme);
  }
 
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-// body {
-//     margin: 0.5rem;
-// }
+// ---------------------------------------------------------------------------------------------------------------------
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

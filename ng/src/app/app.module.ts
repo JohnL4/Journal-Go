@@ -11,14 +11,20 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatNativeDateModule} from '@angular/material/core';
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
+import { JournalEditorComponent } from './journal-editor/journal-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    MenuComponent
+    MenuComponent,
+    JournalEditorComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +36,10 @@ import { MenuComponent } from './menu/menu.component';
     MatIconModule,
     MatMenuModule,
     MatToolbarModule,
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatDatepickerModule, 
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -263,6 +263,12 @@
    I don't think it has layout properties, so the browser is blind to it, but it /can/ have a class name (or list of).
    Interestingly, it can't have a =style= attribute, although =HTMLElement= /can/.
 
+** Datepicker label not properly nestled in field
+
+   The label is sitting too high, so when I pick a date, the label gets pushed up under the topbar.
+
+   | [[file:emacs_wJqd0uF4Bc.png][file:emacs_wJqd0uF4Bc.png]] | [[file:emacs_G2HZ3ipKEa.png][file:emacs_G2HZ3ipKEa.png]] |
+
 * Animated SVG (?)
 
 ** DONE Need to animate hamburger-to-left-arrow and back
