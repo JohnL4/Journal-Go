@@ -105,6 +105,9 @@
 
    Decorate the class /member/ with =@Input()= or =@Output()=, not the class.
 
+** IN-PROGRESS Make a bunch of stupid synthetic journal-editor options
+
+   
 * SASS
 
 ** RESEARCH-DONE How to specify that Angular components use =.scss= instead of =.css=

@@ -1,4 +1,5 @@
 # Journal
+
 Copied from HelloGin (hoursing around w/Go and Angular)
 
 # Serving an Angular front end
@@ -53,6 +54,14 @@ go build; if ($?) { .\journal-go.exe }
 Off to the races!
 
 # Storyboard
+
+So, the overall idea is to throw a form up in front of the user that makes it easy to log the things the user wants to
+track (e.g., did I clean the kitty litter, empty the dishwasher, mow the lawn, have a fight with my spouse, have
+something sad or happy happen with my kids, etc.; whatever the user wants to track).  There'd be checkboxes (e.g.,
+yes/no), scale selectors (e.g., 1-5 sad-happy), enumeration selectors (maybe??), which would be defined by the user,
+depending on what they want to track.
+
+With history, multiple edits throughout the day, possibly sharing with a partner.
 
 ## Initial UI -- blank journal form for today
 
