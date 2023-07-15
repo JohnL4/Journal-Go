@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatGridListModule } from '@angular/material/grid-list'
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
@@ -32,6 +33,7 @@ import { JournalEditorComponent } from './journal-editor/journal-editor.componen
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatSidenavModule,
+    MatGridListModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
