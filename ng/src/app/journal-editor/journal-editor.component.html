@@ -9,6 +9,8 @@
       </mat-form-field>
 </div>
 
-<div *ngFor="let journalWidget of items">
-  {{ journalWidget.label }}
+<div id="widgetGrid">
+  <div class="widget" *ngFor="let journalWidget of items; index as i">
+    {{ i }}: {{ journalWidget.label }}
+  </div>
 </div>
