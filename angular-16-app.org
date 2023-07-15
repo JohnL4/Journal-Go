@@ -107,6 +107,25 @@
 
 ** IN-PROGRESS Make a bunch of stupid synthetic journal-editor options
 
+** Lay the journal-editor widgets out in some sort of responsive grid
+
+   I think what I'm going to call "Andy Bell's one line of CSS" should do the trick.  Basically, you specify a minimum
+   cell width and tell CSS to lay the grid out by filling rows first (the default behavior), adding columns as
+   necessary, until the columns get too small; then move to the next row.  So you get a layout like this:
+
+   | 1 | 2 | 3 |
+   | 4 | 5 | 6 |
+   | 7 | 8 | 9 |
+
+   (i.e., basically row-major grid filling)
+
+   There's no neat way to do it in column-major order because you'd have to fix the height of the grid to some absolute
+   value, which is just ugly, imo.
+
+   I tried the Material Grid List, but that requires a fixed number of columns.  I suppose I /could/ write some
+   TypeScript to figure out viewport width or something, but mat-grid-list really seems to be oriented toward things
+   that can tolerate being squeezed or clipped (e.g., images or prose that can be truncated).  That's not true for text
+   labels and form controls, so I think mat-grid-list is fundamentally the wrong choice.
    
 * SASS
 

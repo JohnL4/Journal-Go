@@ -7,7 +7,7 @@
 }
 
 #widgetGrid {
-    --auto-grid-min-size: 20rem;     // Define a variable (leading "--" required).
+    --auto-grid-min-size: 20em;     // Define a variable (leading "--" required).
     display: grid;
     // Another magical incantation, from https://css-tricks.com/a-responsive-grid-layout-with-no-media-queries/.
     grid-template-columns: repeat( auto-fill, minmax( var( --auto-grid-min-size), 1fr));
@@ -20,5 +20,7 @@
     .widget {
         background-color: #ffffcc;
         border: 1px solid #cccc00;
+        margin: 0.33em 1em;
+        padding: 0.5em;
     }
 }
