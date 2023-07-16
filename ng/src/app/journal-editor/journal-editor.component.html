@@ -12,7 +12,8 @@
 <!-- Full syntax for *ngFor can be found at https://angular.io/api/common/NgForOf#description. -->
 <div id="widgetGrid">
   <div class="widget" *ngFor="let journalWidget of items; index as i">
-    {{ i }}: {{ journalWidget.label }}
+    <!-- {{ i }}:  -->
+    <app-journal-widget [item]="journalWidget"></app-journal-widget>
   </div>
 </div>
 

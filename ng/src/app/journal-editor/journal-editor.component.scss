@@ -18,9 +18,10 @@
 
     // If you put a ":" after .widget, you get some very weird errors.  Don't do that.
     .widget {
-        background-color: #ffffcc;
+        background-color: #ffffee;
         border: 1px solid #cccc00;
-        margin: 0.33em 1em;
-        padding: 0.5em;
+        // Don't need this spacing any more, since Material is going to start handling it.
+        // margin: 0.33em 1em;
+        // padding: 0.5em;
     }
 }

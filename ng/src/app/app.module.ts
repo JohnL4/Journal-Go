@@ -13,19 +13,24 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatNativeDateModule} from '@angular/material/core';
+
+
 import { HeaderComponent } from './header/header.component';
 import { MenuComponent } from './menu/menu.component';
 import { JournalEditorComponent } from './journal-editor/journal-editor.component';
+import { JournalWidgetComponent } from './journal-widget/journal-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MenuComponent,
-    JournalEditorComponent
+    JournalEditorComponent,
+    JournalWidgetComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { JournalEditorComponent } from './journal-editor/journal-editor.componen
     MatFormFieldModule, 
     MatInputModule, 
     MatDatepickerModule, 
+    MatCheckboxModule,
     MatNativeDateModule,
   ],
   providers: [],
