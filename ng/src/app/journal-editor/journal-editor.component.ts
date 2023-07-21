@@ -31,7 +31,10 @@ export class JournalEditorComponent {
     }
   }
 
-  public get items() { return this._items; }
+  public get items() { 
+    // console.log( `returning ${this._items.length} items`);
+    return this._items; 
+  }
 
   /**
    * @returns A short random phrase of random "words"

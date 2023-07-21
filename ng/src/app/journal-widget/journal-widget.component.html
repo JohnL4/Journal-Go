@@ -1,5 +1,20 @@
-<!-- <mat-form-field> -->
-    <mat-checkbox> 
+<mat-checkbox *ngIf="isCheckbox"> 
 {{ item ? item.label : "(undefined)" }}
 </mat-checkbox>
-<!-- </mat-form-field> -->
+
+<mat-form-field *ngIf="isShortText">
+    <mat-label>{{ item?.label }}</mat-label>
+    <input matInput>
+</mat-form-field>
+
+<mat-form-field *ngIf="isDropdown">
+    <mat-label>{{ item?.label }}</mat-label>
+    <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div *ngIf="isUnknownType">
+    Unknown type of widget: {{ item?.itemType }}
+</div>

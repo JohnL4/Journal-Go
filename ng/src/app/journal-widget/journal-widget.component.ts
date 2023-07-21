@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TrackableItem } from '../model/trackable-item';
+import { TrackableItemTypeEnum } from '../model/trackable-item-type-enum';
 
 @Component({
   selector: 'app-journal-widget',
@@ -11,4 +12,13 @@ export class JournalWidgetComponent {
   public item: TrackableItem | undefined;
 
   public constructor() {};
+
+  get isCheckbox(): boolean { return this.item?.itemType == TrackableItemTypeEnum.Boolean }
+  
+  get isShortText(): boolean { return this.item?.itemType == TrackableItemTypeEnum.ShortText }
+
+  get isDropdown(): boolean { return this.item?.itemType == TrackableItemTypeEnum.Enumeration }
+
+  get isUnknownType(): boolean { return ! (this.isCheckbox || this.isShortText || this.isDropdown) }
+  
 }
