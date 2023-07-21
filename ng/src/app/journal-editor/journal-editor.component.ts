@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TrackableItem } from '../model/trackable-item';
 import { TrackableItemTypeEnum } from '../model/trackable-item-type-enum';
+import { RandomWordService } from '../service/random-word.service';
 
 const WORD_CHARS = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -12,6 +13,8 @@ const WORD_CHARS = "abcdefghijklmnopqrstuvwxyz".split("");
 export class JournalEditorComponent {
 
   private _items: Array<TrackableItem> = new Array<TrackableItem>();
+
+  constructor( private _randomWordService: RandomWordService) {}
 
   ngOnInit() {
     for (let i = 0; i < 20; i++) {
@@ -34,18 +37,7 @@ export class JournalEditorComponent {
    * @returns A short random phrase of random "words"
    */
   randomLabel(): string {
-    let words = new Array<string>();
-    let wordCount = Math.floor( 1 + Math.random() * 5);
-    for (let i = 0; i < wordCount; i++) {
-      let wordChars = new Array<string>();
-      let wordLength = Math.floor( 1 + Math.random() * 8);   // Should give range [1..9], so avg word length of 5 chars.
-      for (let j = 0; j < wordLength; j++) {
-        let r = Math.floor( Math.random() * WORD_CHARS.length);
-        wordChars.push( WORD_CHARS[ r] );
-      }
-      let word = wordChars.join( "");
-      words.push( word);
-    }
-    return words.join( " ");
+    let phrase = this._randomWordService.randomPhrase( 5);
+    return phrase;
   }
 }
