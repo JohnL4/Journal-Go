@@ -1,3 +1,7 @@
+<!-- Use component properties rather than direct comparison to TrackableItemTypeEnum values because the component html
+    template only has access to component properties (i.e., that is the html template's only context).
+    See https://stackoverflow.com/a/44045373/370611.
+-->
 <mat-checkbox *ngIf="isCheckbox"> 
 {{ item ? item.label : "(undefined)" }}
 </mat-checkbox>
@@ -12,6 +16,7 @@
     <mat-select>
         <mat-option value="one">First option</mat-option>
         <mat-option value="two">Second option</mat-option>
+        <mat-option value="three">Very long third option lorem ipsum dolor sit amet</mat-option>
     </mat-select>
 </mat-form-field>
 
