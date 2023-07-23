@@ -1,3 +1,7 @@
-mat-checkbox, mat-form-field {
-    // border: 1px solid red;
+mat-form-field {
+    // Looking at the CSS for the Angular Material examples at https://material.angular.io/components/input/overview
+    // leads me to believe we need to set width to something approaching 100% here (95% works well).  Maybe even set the
+    // width to 100% and specify padding or gutter size or something in the grid layout.
+    // (Answer: yes, 100% here and a column-gap of 2em in journal-editor.component.scss seems to work well.)
+    width: 100%;
 }
