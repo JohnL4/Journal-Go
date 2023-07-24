@@ -8,7 +8,8 @@
 
 <mat-form-field *ngIf="isShortText">
     <mat-label>{{ item?.label }}</mat-label>
-    <input matInput>
+    <!-- Specifying size on INPUT (default is 20, btw) doesn't affect layout width, for some reason. -->
+    <input matInput>    
 </mat-form-field>
 
 <mat-form-field *ngIf="isDropdown">

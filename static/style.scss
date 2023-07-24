@@ -20,3 +20,11 @@ pre {
 .top-bar .spacer {
     flex: 1 1 auto;
 }
+
+.verticalInputForm {
+    display: grid;
+    justify-items: start;   // Default is "stretch", so that's no good if your top-level elements in the grid are INPUTs.
+    row-gap: 1em;
+
+    // There are no styles necessary for child items.
+}
