@@ -35,6 +35,8 @@
 |               |     | B        |             | \_  Typescript definite assignment                                       |
 |               |     | B        |             | \_    How I solved it                                                    |
 |               |     | B        |             | \_  Specify input and output from components                             |
+| DONE          |     | B        |             | \_  Make a bunch of stupid synthetic journal-editor options              |
+|               |     | B        |             | \_  Lay the journal-editor widgets out in some sort of responsive grid   |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | SASS                                                                     |
 | RESEARCH-DONE |     | B        |             | \_  How to specify that Angular components use =.scss= instead of =.css= |
@@ -53,15 +55,25 @@
 |               |     | B        |             | \_  Columns of components (column-major layout)                          |
 | DONE          |     | B        |             | \_  Make the toolbar stick to the top of the window/viewport             |
 | RESEARCH-DONE |     | B        |             | \_  What is the behavior of Angular components in web page DOM?          |
+|               |     | B        |             | \_  Datepicker label not properly nestled in field                       |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
-|               |     | B        |             | Animated SVG (?)                                                         |
+|               |     | B        |             | Animated SVG for hamburger menu                                          |
 | DONE          |     | B        |             | \_  Need to animate hamburger-to-left-arrow and back                     |
 |               |     | B        |             | \_    npm install hamburgers                                             |
 |               |     | B        |             | \_    Angular does the equivalent of autoprefixer                        |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
-|               |     | B        |             | SSR of theme preference?                                                 |
-|---------------+-----+----------+-------------+--------------------------------------------------------------------------|
-|               |     | B        |             | Authentication (auth0)                                                   |
+|               |     | B        |             | Back end                                                                 |
+| TODO          |     | B        |             | \_  Run on my AWS EC instance                                            |
+| TODO          |     | B        |             | \_    Update firewall rules to allow connection on a different port      |
+| TODO          |     | B        |             | \_      Current ports in use                                             |
+| TODO          |     | B        |             | \_    Update Go code to use non-default connection config                |
+|               |     | B        |             | \_  Authentication/session management                                    |
+|               |     | B        |             | \_    Just plain stupid                                                  |
+|               |     | B        |             | \_    Session management                                                 |
+|               |     | B        |             | \_    Auth0                                                              |
+| TODO          |     | B        |             | \_  Send widgets from server                                             |
+|               |     | B        |             | \_  Send color themes from server                                        |
+|               |     | B        |             | \_  SSR of theme preference?                                             |
 |---------------+-----+----------+-------------+--------------------------------------------------------------------------|
 |               |     | B        |             | SSL cert (let's encrypt?)                                                |
 |               |     | B        |             | \_  Golang autocert                                                      |
@@ -105,7 +117,8 @@
 
    Decorate the class /member/ with =@Input()= or =@Output()=, not the class.
 
-** IN-PROGRESS Make a bunch of stupid synthetic journal-editor options
+** DONE Make a bunch of stupid synthetic journal-editor options
+   CLOSED: [2023-07-30 Sun 13:40]
 
 ** Lay the journal-editor widgets out in some sort of responsive grid
 
@@ -291,7 +304,9 @@
 
    | [[file:emacs_wJqd0uF4Bc.png][file:emacs_wJqd0uF4Bc.png]] | [[file:emacs_G2HZ3ipKEa.png][file:emacs_G2HZ3ipKEa.png]] |
 
-* Animated SVG (?)
+* Animated SVG for hamburger menu
+
+  (This turned out to be a little stupid, so I dropped it.)
 
 ** DONE Need to animate hamburger-to-left-arrow and back
    CLOSED: [2023-07-08 Sat 16:09]
@@ -312,8 +327,45 @@
 
     See https://stackoverflow.com/questions/65760020/use-autoprefixer-with-angular11
 
-* SSR of theme preference?
-* Authentication (auth0)
+* Back end
+
+** TODO Run on my AWS EC instance
+
+*** TODO Update firewall rules to allow connection on a different port
+
+    8080, maybe? Or 6060?
+
+    Consult my own Amazon notes at http://tarheel-nc.s3-website-us-east-1.amazonaws.com/using-aws.html.  (I did look at
+    this, but there's nothing about network config and firewalls or security groups or whatever is required.)
+
+**** TODO Current ports in use
+
+*** TODO Update Go code to use non-default connection config
+
+    Different port /and/ allow connections from the world at large.
+
+    Gin options, I'm sure.
+
+** Authentication/session management
+
+   JWT?  Yes.
+
+   A little quick googling (=go gin security=) yields this:
+   https://developer.okta.com/blog/2021/02/17/building-and-securing-a-go-and-gin-web-application
+
+*** Just plain stupid
+
+*** Session management
+    
+*** Auth0
+
+** TODO Send widgets from server
+
+   GET /api/v1/widgets
+   
+** Send color themes from server
+   
+** SSR of theme preference?
 * SSL cert (let's encrypt?)
 ** Golang autocert
 * Client-side encryption
