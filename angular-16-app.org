@@ -67,6 +67,7 @@
 | TODO          |     | B        |             | \_    Update firewall rules to allow connection on a different port      |
 | TODO          |     | B        |             | \_      Current ports in use                                             |
 | TODO          |     | B        |             | \_    Update Go code to use non-default connection config                |
+|               |     | B        |             | \_  DevOps CI/CD                                                         |
 |               |     | B        |             | \_  Authentication/session management                                    |
 |               |     | B        |             | \_    Just plain stupid                                                  |
 |               |     | B        |             | \_    Session management                                                 |
@@ -345,6 +346,14 @@
     Different port /and/ allow connections from the world at large.
 
     Gin options, I'm sure.
+
+** DevOps CI/CD
+
+   GitHub Actions?
+
+   Something in GitLab?
+
+   Monitor & pull from EC instance?  Chef?  Puppeteer?  Something entirely different?
 
 ** Authentication/session management
 
