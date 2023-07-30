@@ -305,6 +305,9 @@
 
    | [[file:emacs_wJqd0uF4Bc.png][file:emacs_wJqd0uF4Bc.png]] | [[file:emacs_G2HZ3ipKEa.png][file:emacs_G2HZ3ipKEa.png]] |
 
+   Note: the solution here was to include some more SASS modules.  (Specifically, =form-field= and =input=.)  See commit
+   =faf13ee= made on July 10, 2023.
+
 * Animated SVG for hamburger menu
 
   (This turned out to be a little stupid, so I dropped it.)
